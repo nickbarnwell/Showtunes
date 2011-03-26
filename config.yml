@@ -1,0 +1,7 @@
+---
+library:
+    base_path: \\barnwellserver\Videos
+    tv_path: Television Shows
+    movie_path: Movies
+site:
+    title: Showtunes - Not Actually Related to Music

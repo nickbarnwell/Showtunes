@@ -1,0 +1,25 @@
+<Item>
+  <id>213767</id>
+  <DVD_chapter />
+  <DVD_discid />
+  <DVD_episodenumber>1.0</DVD_episodenumber>
+  <DVD_season>1</DVD_season>
+  <Director>|Debbie Allen|</Director>
+  <EpisodeName>The Fresh Prince Project</EpisodeName>
+  <EpisodeNumber>1</EpisodeNumber>
+  <FirstAired>1990-09-10</FirstAired>
+  <GuestStars>|Helen Page Camp|</GuestStars>
+  <IMDB_ID />
+  <Language>en</Language>
+  <Overview>Aunt Vivian tries to mediate between her husband Philip and the newly arrived Will.</Overview>
+  <ProductionCode>446801</ProductionCode>
+  <Rating>7.5</Rating>
+  <SeasonNumber>1</SeasonNumber>
+  <Writer>|Andy Borowitz|Susan Borowitz|</Writer>
+  <absolute_number>1</absolute_number>
+  <filename>episodes/76738/213767.jpg</filename>
+  <lastupdated>1277139330</lastupdated>
+  <seasonid>11318</seasonid>
+  <seriesid>76738</seriesid>
+  <LockData>False</LockData>
+</Item>
