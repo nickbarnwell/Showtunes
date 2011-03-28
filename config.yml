@@ -1,6 +1,6 @@
 ---
 library:
-    base_path: \\barnwellserver\Videos
+    base_path: Test Data
     tv_path: Television Shows
     movie_path: Movies
 site:

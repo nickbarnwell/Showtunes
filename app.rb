@@ -32,6 +32,11 @@ get '/movies' do
 	haml :element, :locals => { :movies => movies } 
 end
 
+get '/movies.json' do
+	content_type :json
+	movies.to_json
+end
+
 __END__
 @@movie
 - movies.each do |movie|

@@ -1,8 +1,6 @@
 module Library
 	class Asset
 
-		SERIALIZE = %w{ title description backdrop folder }
-
 		def initialize(path)
 			@path = path 
 		end
@@ -26,13 +24,12 @@ module Library
 		def parse_pipes(string)
 			string[1..-1].split('|')
 		end
-
-		def to_hash
-			SERIALIZE.inject({}) {|h,v| h[v] = self.send(v.to_sym); h }
-		end
-
-		def to_json
-		  self.to_hash.to_json
+		
+		def to_json(*a)
+			{
+				'json_class' 	=> self.class.name,
+				'data'				=> %w{title description backdrop folder}.inject({}) { |h,k| h[k] = self.send(k.to_sym); h }
+			}.to_json(*a)
 		end
 
 	end
