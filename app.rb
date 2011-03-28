@@ -1,25 +1,29 @@
 # encoding: UTF-8
-require 'sinatra'
-require 'YAML'
-require 'active_support'
+
+require 'rubygems'
+require 'bundler'
+Bundler.require
+
+require 'yaml'
 require 'json'
+
 configure do
 	YAML.load_file(File.open('config.yml')).each_pair {|k,v| set k.to_sym, v}
 end
 
-require './models/media'
-require './models/movie'
+$LOAD_PATH.unshift File.expand_path('lib')
+require 'library'
+
 puts File.join(settings.library['base_path'], settings.library['movie_path'])
 
 helpers do
 	def television
-		Dir.glob(File.join(settings.library['base_path'], settings.library['tv_path'], '*')).map {|f| Movie.new(f)}
+		Dir.glob(File.join(settings.library['base_path'], settings.library['tv_path'], '*')).map {|f| Library::Movie.new(f)}
 	end
 
 	def movies
 		movies = Dir.glob(File.join(settings.library['base_path'], settings.library['movie_path'], '*')).select {|m| File.directory?(m)}
-		p movies
-		movies.map {|f| Movie.new(f)}
+		movies.map {|f| Library::Movie.new(f)}
 	
 	end
 end

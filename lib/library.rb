@@ -1,0 +1,5 @@
+require 'library/asset'
+require 'library/movie'
+require 'library/show'
+require 'library/season'
+require 'library/episode'
