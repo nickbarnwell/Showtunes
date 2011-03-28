@@ -1,12 +1,12 @@
 module Library
 	class Show < Library::Asset
 		
-		def xml
-			File.join @base_path, 'series.xml'
-		end
-
 		def metadata
 			@metadata ||= Crack::XML.parse(File.open(xml, 'r').read)['Series']
+		end
+		
+		def xml
+			File.join @path, 'series.xml'
 		end
 
 		def title
@@ -22,7 +22,7 @@ module Library
 		end
 
 		def seasons
-			Dir.glob("#{@base_path}/*").select {|f| File.directory?(f) }.map {|f| Season.new(f) }
+			Dir.glob("#{@path}/*").select {|f| File.directory?(f) }.map {|f| Library::Season.new(f) }
 		end
 	end
 end

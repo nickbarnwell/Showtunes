@@ -1,6 +1,14 @@
 module Library
 	class Asset
 
+		def self.all
+			Dir.glob("#{base_path}/*").select {|f| File.directory?(f) }.map {|f| self.new(f) }
+		end
+		
+		def self.base_path
+			File.join settings.library['base_path'], settings.library["#{self.name.split('::').last.downcase}_path"]
+		end
+		
 		def initialize(path)
 			@path = path 
 		end

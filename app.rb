@@ -14,38 +14,13 @@ end
 $LOAD_PATH.unshift File.expand_path('lib')
 require 'library'
 
-puts File.join(settings.library['base_path'], settings.library['movie_path'])
-
-helpers do
-	def television
-		Dir.glob(File.join(settings.library['base_path'], settings.library['tv_path'], '*')).map {|f| Library::Movie.new(f)}
+%w{movies shows}.each do |asset|
+	get "/#{asset}" do
+		haml :index, :locals => { :assets => Library.const_get("#{asset.chop.capitalize}").all }
 	end
-
-	def movies
-		movies = Dir.glob(File.join(settings.library['base_path'], settings.library['movie_path'], '*')).select {|m| File.directory?(m)}
-		movies.map {|f| Library::Movie.new(f)}
 	
+	get "/#{asset}.json" do
+		content_type :json
+		Library.const_get("#{asset.chop.capitalize}").all.to_json
 	end
 end
-
-get '/movies' do
-	haml :element, :locals => { :movies => movies } 
-end
-
-get '/movies.json' do
-	content_type :json
-	movies.to_json
-end
-
-__END__
-@@movie
-- movies.each do |movie|
-	%article
-		%header
-			%h1= movie.title
-		%p= movie.description
-		%img{:src => movie.folder}
-		%footer
-			%ul
-				- movie.genres.each do |genre|
-					%li= genre

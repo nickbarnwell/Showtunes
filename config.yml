@@ -1,7 +1,7 @@
 ---
 library:
     base_path: Test Data
-    tv_path: Television Shows
+    show_path: Television Shows
     movie_path: Movies
 site:
     title: Showtunes - Not Actually Related to Music
