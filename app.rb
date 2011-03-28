@@ -9,6 +9,7 @@ require 'json'
 
 configure do
 	YAML.load_file(File.open('config.yml')).each_pair {|k,v| set k.to_sym, v}
+	set :haml, :format => :html5
 end
 
 $LOAD_PATH.unshift File.expand_path('lib')
@@ -23,4 +24,6 @@ require 'library'
 		content_type :json
 		Library.const_get("#{asset.chop.capitalize}").all.to_json
 	end
+	
+	# TODO serve images
 end

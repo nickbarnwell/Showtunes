@@ -1,9 +1,7 @@
 - assets.each do |asset|
-	%li.result
-		%h1= asset.title
-		.info
-			%ul.details
-				
-				%li.text= asset.description
-
-	
+	%article
+		%header
+			%h1= asset.title
+		%p= asset.description
+		%figure
+			%img{ :src => asset.folder }

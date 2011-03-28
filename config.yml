@@ -1,7 +1,7 @@
 ---
 library:
-    base_path: Test Data
-    show_path: Television Shows
-    movie_path: Movies
+    base_path: spec/library
+    show_path: shows
+    movie_path: movies
 site:
     title: Showtunes - Not Actually Related to Music

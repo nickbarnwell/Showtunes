@@ -1,23 +1,27 @@
 !!!
 %html
 	%head
-		%title Wikipedia Names Your Band
-		%link{:href => "http://yui.yahooapis.com/3.2.0/build/cssreset/reset-min.css", :rel => "stylesheet"}
-		%link{:href => "style.css", :rel => "stylesheet"}
-		:plain
+	
+		%meta{ :charset => 'utf-8' }
+		
+		%meta{ :content => 'Media Browser', :name => 'description' }
+		%meta{ :content => 'Nick Barnwell', :name => 'author' }
+		%meta{ :content => 'Jamie Hodge', :name => 'author' }
+		
+		%meta{ :content => 'width=device-width, initial-scale=1.0', :name => 'viewport' }
+		
+		%script{ :src => url('/js/modernizr.min.js') }
+		
 	%body
-		#container
-			#content
-				%ul#results
-					=yield
-			#footer
-				%p
-					Powered by Sinatra
-					%br
-					Built by
-					%a{:href => 'http://github.com/nickbarnwell'} Nick Barnwell
-					
-			#fade_left
-			#fade_right
-	%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", :type => "text/javascript"}
-	%script{:src => "script.js", :type => "text/javascript"}
+		%header
+			%h1= settings.site['title']
+			
+		= yield
+		
+		%footer
+			%p
+				Powered by Sinatra
+			%p
+				Copyright &copy; #{Time.now.year}
+				
+		%script{ :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js' }
