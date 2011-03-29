@@ -1,6 +1,5 @@
 # encoding: UTF-8
 
-require 'rubygems'
 require 'bundler'
 Bundler.require
 
@@ -25,5 +24,7 @@ require 'library'
 		Library.const_get("#{asset.chop.capitalize}").all.to_json
 	end
 	
-	# TODO serve images
+	get "/#{settings.library['base_path']}/#{settings.library[asset.chop + '_path']}/*/*" do
+		send_file URI.decode(request.path_info[1..-1])
+	end
 end
