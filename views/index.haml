@@ -1,7 +1,12 @@
-- assets.each do |asset|
-	%article
-		%header
-			%h1= asset.title
-		%p= asset.description
-		%figure
-			%img{ :src => asset.folder }
+.ContentFlow
+	.loadIndicator
+		.indicator
+	.globalCaption
+	.flow
+		- assets.each do |asset|
+			.item
+				%img.content{ :src => asset.folder }
+				.caption
+					=asset.title
+	
+	

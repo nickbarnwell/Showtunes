@@ -5,17 +5,18 @@
 		%meta{ :charset => 'utf-8' }
 		
 		%meta{ :content => 'Media Browser', :name => 'description' }
-		%meta{ :content => 'Nick Barnwell', :name => 'author' }
 		%meta{ :content => 'Jamie Hodge', :name => 'author' }
-		
+		%meta{ :content => 'Nick Barnwell', :name => 'author' }
+
 		%meta{ :content => 'width=device-width, initial-scale=1.0', :name => 'viewport' }
-		
+		%link{ :rel => 'stylesheet', :href => url('/css/style.css'), :media => 'screen'}
 		%script{ :src => url('/js/modernizr.min.js') }
+		%script{ :src => url('/js/contentflow.js') }
 		
 	%body
 		%header
 			%h1= settings.site['title']
-			
+	
 		= yield
 		
 		%footer
